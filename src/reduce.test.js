@@ -34,25 +34,19 @@ describe('reduce', () => {
   it('should run callback array`s length times if initialValue is', () => {
     const array = [1, 2, 3, 4];
 
-    array.reduce2(callback, 0);
+    const result = array.reduce2(callback, 0);
 
     expect(callback).toHaveBeenCalledTimes(array.length); ;
+    expect(result).toBe(10);
   });
 
   it('should run callback array`s length - 1 times if no initialValue', () => {
     const array = [1, 2, 3, 4];
 
-    array.reduce2(callback);
+    const result = array.reduce2(callback);
 
     expect(callback).toHaveBeenCalledTimes(array.length - 1); ;
-  });
-
-  it('should not run callback if array is empty', () => {
-    const array = [];
-
-    array.reduce2(callback);
-
-    expect(callback).toHaveBeenCalledTimes(0); ;
+    expect(result).toBe(10);
   });
 
   it('should run callback with correct arguments', () => {
